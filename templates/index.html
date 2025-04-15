@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignSync - Sign Language Interpreter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c63ff;
+            --dark-color: #2a2a2a;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: var(--dark-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--light-color);
+            transform: skewY(-3deg);
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .about-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .about-content {
+            padding: 2rem;
+        }
+        
+        .about-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-box:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .feature-box:hover .feature-icon {
+            color: white;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title animate__animated animate__fadeInDown">SignSync</h1>
+            <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Bridging communication gaps through sign language technology</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="about-card animate__animated animate__fadeInUp">
+                        <img src="{{ url_for('static', filename='images/img1.jpg') }}" alt="Deaf Community" class="about-img">
+                        <div class="about-content">
+                            <h3 class="about-title">Understanding the Deaf Community</h3>
+                            <p>The deaf community has a rich culture and language of its own. Sign languages are complete natural languages with their own grammar and lexicon.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="about-card animate__animated animate__fadeInUp animate__delay-1s">
+                        <img src="{{ url_for('static', filename='images/img2.jpg') }}" alt="Communication Barriers" class="about-img">
+                        <div class="about-content">
+                            <h3 class="about-title">Breaking Barriers</h3>
+                            <p>Only about 30% of spoken English can be understood through lip reading. Sign language provides complete access to communication for deaf individuals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="about-card animate__animated animate__fadeInUp animate__delay-2s">
+                        <img src="{{ url_for('static', filename='images/img3.jpg') }}" alt="Technology" class="about-img">
+                        <div class="about-content">
+                            <h3 class="about-title">Technology for Inclusion</h3>
+                            <p>Modern technology can help bridge the communication gap between deaf and hearing communities through innovative solutions like SignSync.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Our Services</h2>
+                    <p class="lead">Choose how you want to communicate</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <a href="{{ url_for('text_to_sign_page') }}" class="text-decoration-none">
+                        <div class="feature-box animate__animated animate__fadeInLeft">
+                            <div class="feature-icon">
+                                <i class="bi bi-text-paragraph"></i>
+                            </div>
+                            <h3 class="feature-title">Text to Sign</h3>
+                            <p>Convert written text into sign language animations to help hearing people communicate with the deaf community.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <a href="{{ url_for('sign_to_text_page') }}" class="text-decoration-none">
+                        <div class="feature-box animate__animated animate__fadeInRight">
+                            <div class="feature-icon">
+                                <i class="bi bi-camera-video"></i>
+                            </div>
+                            <h3 class="feature-title">Sign to Text</h3>
+                            <p>Convert sign language gestures into written text to help deaf individuals communicate with hearing people.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scroll Reveal Animation -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Initialize ScrollReveal
+        ScrollReveal().reveal('.about-card', {
+            delay: 200,
+            distance: '20px',
+            origin: 'bottom',
+            interval: 200
+        });
+        
+        ScrollReveal().reveal('.feature-box', {
+            delay: 300,
+            distance: '40px',
+            origin: 'bottom'
+        });
+    </script>
+</body>
+</html>
