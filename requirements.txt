@@ -1,6 +1,8 @@
-flask
-gunicorn
-tensorflow
-mediapipe
+Flask
 opencv-python
 numpy
+tensorflow
+mediapipe
+pyttsx3
+scikit-learn
+gunicorn
